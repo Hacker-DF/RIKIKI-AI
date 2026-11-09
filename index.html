@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot IA Web Dev</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="chat-container">
+    <section id="authScreen" class="auth-screen">
+      <h1 class="auth-title">💬 Chatbot IA Web Dev</h1>
+
+      <div class="auth-tabs">
+        <button id="tabSignup" class="auth-tab active" onclick="showAuthTab('signup')">Créer un compte</button>
+        <button id="tabLogin" class="auth-tab" onclick="showAuthTab('login')">Se connecter</button>
+      </div>
+
+      <div id="signupForm" class="auth-form">
+        <input type="text" id="signupFirstName" placeholder="Prénom" />
+        <input type="text" id="signupLastName" placeholder="Nom" />
+        <input type="email" id="signupEmail" placeholder="Email" />
+        <div class="phone-row">
+          <input type="text" id="signupDialCode" placeholder="+33" class="dial-code" />
+          <input type="tel" id="signupPhone" placeholder="Numéro de téléphone" />
+        </div>
+        <select id="signupGender">
+          <option value="" disabled selected>Sexe</option>
+          <option value="homme">Homme</option>
+          <option value="femme">Femme</option>
+          <option value="autre">Autre / préfère ne pas dire</option>
+        </select>
+        <button class="auth-submit" onclick="submitSignup()">Créer mon compte</button>
+        <p id="signupError" class="auth-error"></p>
+      </div>
+
+      <div id="loginForm" class="auth-form hidden">
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <button class="auth-submit" onclick="submitLogin()">Se connecter</button>
+        <p id="loginError" class="auth-error"></p>
+      </div>
+    </section>
+
+    <div id="appScreen" class="hidden">
+      <header>
+        <h1>💬 Chatbot IA Web Dev</h1>
+        <div class="header-actions">
+          <button id="logoutBtn" onclick="logout()" title="Changer de compte">🚪</button>
+          <button id="toggleTheme" title="Changer de thème">🌓</button>
+        </div>
+      </header>
+
+      <select id="providerSelect" class="provider-select">
+        <option value="gemini">✨ Gemini</option>
+        <option value="claude">🟣 Claude</option>
+        <option value="openai">🟢 ChatGPT</option>
+        <option value="grok">⚫ Grok</option>
+        <option value="image">🎨 Image (Nano Banana)</option>
+      </select>
+
+      <section id="chatBox" class="chat-box" aria-live="polite"></section>
+
+      <section class="input-group">
+        <textarea id="userInput" placeholder="Posez votre question ici..." rows="2"></textarea>
+        <button id="sendBtn" onclick="sendMessage()" title="Envoyer">➤</button>
+        <button onclick="startVoice()" title="Parler">🎙</button>
+        <button onclick="downloadChat()" title="Sauvegarder en .txt">📥</button>
+        <button onclick="downloadChatPDF()" title="Sauvegarder en .pdf">📄</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

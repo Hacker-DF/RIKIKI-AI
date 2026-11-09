@@ -1,0 +1,386 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #1e1e1e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+  background: #f2eefa;
+  color: #2b2b2b;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+h1 {
+  color: #00ffd0;
+  margin: 0;
+}
+
+body.light h1 {
+  color: #008073;
+}
+
+#toggleTheme, #logoutBtn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* --- Écran de connexion / inscription --- */
+.auth-screen {
+  background: #2e2e2e;
+  border-radius: 10px;
+  padding: 24px 20px;
+}
+
+body.light .auth-screen {
+  background: #fbfaff;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.auth-tab.active {
+  opacity: 1;
+  border-color: #00ffd0;
+  background: rgba(0, 255, 208, 0.1);
+}
+
+body.light .auth-tab {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light .auth-tab.active {
+  border-color: #c2255c;
+  background: rgba(194, 37, 92, 0.1);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form input,
+.auth-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1e1e1e;
+  color: #fff;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.light .auth-form input,
+body.light .auth-form select {
+  background: #ece7f7;
+  color: #2b2b2b;
+}
+
+.phone-row {
+  display: flex;
+  gap: 8px;
+}
+
+.dial-code {
+  flex: 0 0 70px;
+}
+
+.auth-submit {
+  background: #00ffd0;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.auth-submit:hover {
+  background: #00c9a7;
+}
+
+.auth-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  min-height: 16px;
+  margin: 0;
+}
+
+.provider-select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2e2e2e;
+  color: #fff;
+  font-size: 15px;
+}
+
+body.light .provider-select {
+  background: #ece7f7;
+  color: #2b2b2b;
+}
+
+.generated-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 6px;
+  display: block;
+}
+
+.chat-box {
+  background: #2e2e2e;
+  padding: 20px;
+  border-radius: 10px;
+  height: 500px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+body.light .chat-box {
+  background: #fbfaff;
+  color: #2b2b2b;
+}
+
+.message {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease-in;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.user {
+  text-align: right;
+  color: #00ffd0;
+}
+
+body.light .user {
+  color: #c2255c;
+}
+
+.bot {
+  text-align: left;
+  color: #eee;
+}
+
+body.light .bot {
+  color: #4c3bcf;
+}
+
+/* --- Barre d'actions (copier / lire / 👍👎) sous chaque message du bot --- */
+.action-bar {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  justify-content: flex-start;
+}
+
+.action-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 13px;
+  padding: 2px 8px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.action-btn:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.action-btn.active {
+  opacity: 1;
+  background: rgba(0, 255, 208, 0.15);
+}
+
+body.light .action-btn {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light .action-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+body.light .action-btn.active {
+  background: rgba(194, 37, 92, 0.12);
+}
+
+/* --- Blocs de code : séparés, avec langage, copier et télécharger --- */
+.code-block {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.code-lang {
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.code-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ccc;
+  opacity: 0.8;
+  padding: 2px 4px;
+}
+
+.code-btn:hover {
+  opacity: 1;
+}
+
+.code-block pre {
+  margin: 0;
+  border-radius: 0;
+}
+
+pre {
+  background: #111;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #0f0;
+  margin-top: 10px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+textarea {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #2e2e2e;
+  color: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+body.light textarea {
+  background: #ece7f7;
+  color: #2b2b2b;
+}
+
+button {
+  background: #00ffd0;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #00c9a7;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Banniere d'erreur (visible sans devtools) --- */
+.error-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ff4444;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 13px;
+  text-align: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
